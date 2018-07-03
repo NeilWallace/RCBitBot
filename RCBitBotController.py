@@ -21,6 +21,7 @@ while True:
     # Data from the controller to be sent to the vehicle.
     # [left, right, horn, light]
     control_data = [0, 0, 0, 0]
+
     if x < -min_tilt and y < -min_tilt:
         # forwards left
         display.show(Image.ARROW_NW)
@@ -59,6 +60,6 @@ while True:
         display.clear()
     if any(control_data):
         msg = '{}:{}:{}:{}'.format(*control_data)
-        print(msg)
+        # print(msg)
         radio.send(msg)
 sleep(20)
